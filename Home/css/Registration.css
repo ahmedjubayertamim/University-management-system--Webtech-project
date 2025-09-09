@@ -1,0 +1,93 @@
+body {
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  font-family: Arial, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 90vh;
+}
+
+.form-container {
+  background: white;
+  padding: 30px;
+  border-radius: 12px;
+  width: 400px;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+}
+
+.form-header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.form-header img {
+  width: 80px;
+  margin-bottom: 10px;
+}
+
+h2 {
+  margin: 5px 0;
+  color: #333;
+}
+
+p {
+  font-size: 14px;
+  color: #666;
+}
+
+label {
+  font-weight: bold;
+  display: block;
+  margin-top: 10px;
+}
+
+input, select {
+  width: 100%;
+  padding: 8px;
+  margin-top: 5px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+.btn {
+  width: 100%;
+  margin-top: 15px;
+  padding: 10px;
+  background: linear-gradient(135deg, #4f67d0, #60348b);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background: linear-gradient(135deg, #60348b, #4f67d0);
+}
+
+.link-btn {
+  display: block;
+  text-align: center;
+  margin-top: 12px;
+  color: #4f67d0;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+
+
+.success {
+  color: green;
+  font-size: 14px;
+  text-align: center;
+  margin-top: 10px;
+  font-weight: bold;
+}
+.errors{
+  color: #e60000;      /* bright red */
+  font-size: 14px;
+  font-weight: bold;
+  margin-top: 3px;
+  display: block;      /* ensures it always shows on a new line */
+}
+
