@@ -6,9 +6,22 @@ $pass = "";
 $dbname = "universitymanagementsystem";
 
 $conn = new mysqli($host, $user, $pass, $dbname);
-if ($conn->connect_error) die("Connection Failed: " . $conn->connect_error);
+if ($conn->connect_error) {
+    die("Connection Failed: " . $conn->connect_error);
+}
 
-$booksResult = $conn->query("SELECT * FROM addbook ORDER BY id ASC");
+$searchQuery = "";
+if (isset($_GET['search']) && !empty(trim($_GET['search']))) {
+    $searchTerm = $conn->real_escape_string($_GET['search']);
+    $searchQuery = "WHERE bookname LIKE '%$searchTerm%' 
+                    OR author LIKE '%$searchTerm%' 
+                    OR type LIKE '%$searchTerm%' 
+                    OR status LIKE '%$searchTerm%'";
+}
+
+
+$sql = "SELECT * FROM addbook $searchQuery ORDER BY id ASC";
+$booksResult = $conn->query($sql);
 ?>
 
 <!DOCTYPE html>
@@ -45,7 +58,7 @@ $booksResult = $conn->query("SELECT * FROM addbook ORDER BY id ASC");
         <div class="search-bar">
 
             <form method="GET" action="">
-                <input type="text" name="search" placeholder="Search by title, author, type..." value="<?php echo isset($_GET['search']) ? htmlspecialchars($_GET['search']) : ''; ?>">
+                <input type="text" name="search" placeholder="Search by title and author name" value="<?php echo isset($_GET['search']) ? htmlspecialchars($_GET['search']) : ''; ?>">
                 <button type="submit">Search</button>
             </form>
 
