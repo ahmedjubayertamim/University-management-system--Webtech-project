@@ -1,0 +1,99 @@
+body {
+      font-family: "Segoe UI", Tahoma, sans-serif;
+      background: #f5f7fb;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      background: #3b5998;
+      color: white;
+      padding: 15px;
+      text-align: center;
+    }
+    .content {
+      margin-left: 220px;
+      padding: 30px;
+    }
+    .form-container {
+      background: white;
+      padding: 20px;
+      margin-bottom: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+    }
+    .deadline-table {
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      padding: 20px;
+      margin-top: 20px;
+    }
+    .deadline-table h2 {
+      margin-top: 0;
+      margin-bottom: 15px;
+      font-size: 20px;
+      color: #333;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    table th {
+      background: #3b5998;
+      color: white;
+      padding: 12px;
+      text-align: center;
+      font-size: 14px;
+    }
+    table td {
+      padding: 12px;
+      text-align: center;
+      font-size: 14px;
+      color: #333;
+    }
+    table tr:nth-child(even) {
+      background: #f9f9f9;
+    }
+    table tr:hover {
+      background: #eef3fb;
+      transition: 0.3s;
+    }
+   .btn {
+      padding: 10px 15px;
+      background: #3b5998;
+      border: none;
+      border-radius: 6px;
+      color: white;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    .btn:hover {
+      background: #2c3e50;
+    }
+    .btn.edit {
+        background-color: green;
+        color: white;
+        text-decoration: none;
+    }
+    .btn.delete {
+        background-color: red;
+        color: white;
+        text-decoration: none;
+    }
+    a.btn {
+        text-decoration: none;
+    }
+
+
+/* ----- Status text ----- */
+.status-active {
+  color: green;
+  font-weight: bold;
+}
+.status-expired {
+  color: red;
+  font-weight: bold;
+}
