@@ -3,7 +3,6 @@
 $errors = [];
 $success = "";
 
-
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $conn = new mysqli("localhost", "root", "", "universitydb");
     if ($conn->connect_error) {
@@ -16,6 +15,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $contact    = trim($_POST['cNum'] ?? '');
     $email      = trim($_POST['email'] ?? '');
     $gender     = $_POST['gender'] ?? '';
+    $role       = $_POST['role'] ?? '';   
     $pass       = $_POST['pass'] ?? '';
     $cpass      = $_POST['cpass'] ?? '';
 
@@ -35,6 +35,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     elseif(!filter_var($email, FILTER_VALIDATE_EMAIL)) $errors['email'] = "Invalid email!";
 
     if(empty($gender)) $errors['gender'] = "Gender required!";
+
+    if(empty($role)) $errors['role'] = "Role required!";  
 
     if(empty($pass)) $errors['pass'] = "Password required!";
     elseif(strlen($pass) < 6 || !preg_match("/[0-9]/",$pass) || !preg_match("/[A-Z]/",$pass) || !preg_match("/[a-z]/",$pass)){
@@ -58,10 +60,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if(empty($errors)){
         $hashed_password = password_hash($pass, PASSWORD_DEFAULT);
+
         $stmt = $conn->prepare("INSERT INTO users 
-            (first_name, last_name, dob, contact_number, email, gender, password, status) 
-            VALUES (?, ?, ?, ?, ?, ?, ?, 'disabled')");
-        $stmt->bind_param("sssssss", $first_name, $last_name, $dob, $contact, $email, $gender, $hashed_password);
+            (first_name, last_name, dob, contact_number, email, gender, role, password, status) 
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, 'disabled')");
+        $stmt->bind_param("ssssssss", $first_name, $last_name, $dob, $contact, $email, $gender, $role, $hashed_password);
 
         if($stmt->execute()){
             $success = "Registration successful! Your account is disabled until admin approval.";
