@@ -1,0 +1,69 @@
+#searchInput{
+    padding:8px;
+    width:60%; 
+    border:1px solid #ccc; 
+    border-radius:5px;
+        
+}
+        
+#roleFilter{
+    padding:8px;
+    border:1px solid #ccc; 
+    border-radius:5px;
+}
+        
+#noResults{
+    display:none;
+}
+#editModal{
+    display:none; 
+    position:fixed;
+    top:0; 
+    left:0; 
+    width:100%; 
+    height:100%;
+    background:rgba(0,0,0,0.6);
+    justify-content:center; 
+    align-items:center;
+}
+        
+#Table{
+    background:#fff; 
+    padding:20px;
+    border-radius:10px;
+    width:400px;
+}
+#save{
+    background:green;
+    color:#fff;
+    padding:8px 15px;
+    border:none;
+    border-radius:5px;
+}
+#cancle{
+    background:red;
+    color:#fff;
+    padding:8px 15px;
+    border:none;
+    border-radius:5px;
+}
+#SearchRole{
+    display: flex;
+    justify-content: space-between; 
+    margin-bottom: 15px;
+    gap: 10px;
+}
+#addUserBtn{
+   background: rgb(86, 86, 182);
+   color: white;
+   padding: 8px 15px;
+   border: none;
+   border-radius: 5px;
+   cursor: pointer;
+   font-size: 14px;
+   font-weight: bold;
+   padding:8px 22px;
+}
+#addUserBtn:hover {
+   background: darkblue;
+}
