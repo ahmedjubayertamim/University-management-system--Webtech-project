@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-<html lang="en">
 <head>
   <meta charset="UTF-8">
   <title>Set Adding Dropping Time</title>
@@ -17,23 +16,19 @@
     <ul>
       <li><a href="index.php">Dashboard</a></li>
       <li><a href="MangeUser.php">Manage Users</a></li>
+      <li><a href="OfferCourse.php">Offered Course</a></li>
       <li><a href="ManageCourse.php">Manage Courses</a></li>
       <li><a href="Finance.php">Finance & Accounts</a></li>
       <li><a href="SetDeadline.php">Set Add/Drop Deadline</a></li>
       <li><a href="settings.php">Settings</a></li>
-      <li><a href="logout.php">Logout</a></li>
+      <li><a href="studentLoginPage.php">Logout</a></li>
     </ul>
   </div>
 
   <div class="content">
-    <!-- ----- Form Section ----- -->
     <div class="form-container">
       <h2>Set Course Add/Drop Deadline</h2>
-      <?php 
-        if (isset($_GET['message'])) {
-          echo "<p style='color:green;font-weight:bold;'>" . htmlspecialchars($_GET['message']) . "</p>";
-        }
-      ?>
+     
       <form method="POST" action="../php/CourseAddDrop.php">
         <div class="form-group">
           <label for="department">Select Department</label>
@@ -69,7 +64,15 @@
       </form>
     </div>
 
-    <!-- ----- Table Section ----- -->
+   <?php 
+if (isset($_GET['message'])) {
+  echo "<p style='color:green; font-weight:bold; text-align:center; margin:15px 0;'>"
+        . htmlspecialchars($_GET['message']) . 
+       "</p>";
+}
+?>
+
+
     <div class="deadline-table">
       <h2>All Course Deadlines</h2>
       <table>
@@ -83,13 +86,13 @@
         </tr>
 
         <?php
-          // Database connection
+          
           $conn = new mysqli("localhost", "root", "", "universitymanagementsystem");
           if ($conn->connect_error) {
               die("Connection failed: " . $conn->connect_error);
           }
 
-          // Handle delete
+        
           if (isset($_GET['delete_id'])) {
               $delete_id = intval($_GET['delete_id']);
               $conn->query("DELETE FROM add_drop_deadline WHERE id = $delete_id");
@@ -97,8 +100,7 @@
               exit;
           }
 
-          // Fetch data
-          $sql = "SELECT * FROM add_drop_deadline ORDER BY id DESC";
+          $sql = "SELECT * FROM add_drop_deadline ORDER BY id ASC";
           $result = $conn->query($sql);
 
           if ($result && $result->num_rows > 0) {
@@ -111,8 +113,8 @@
                           <td>".htmlspecialchars($row['end_date'])."</td>
                           <td class='".($status=='Active'?'status-active':'status-expired')."'>$status</td>
                           <td>
-                            <a href='EditDeadline.php?id=".$row['id']."' class='btn edit'>Edit</a>
-                            <a href='SetDeadline.php?delete_id=".$row['id']."' class='btn delete' onclick=\"return confirm('Are you sure to delete this record?');\">Delete</a>
+                            <a href='../php/editCourseDeadline.php?id=".$row['id']."' class='btn edit'>Edit</a>
+                            <a href='../php/deleteCourseDeadline.php?delete_id=".$row['id']."' class='btn delete' onclick=\"return confirm('Are you sure to delete this record?');\">Delete</a>
                           </td>
                         </tr>";
               }
