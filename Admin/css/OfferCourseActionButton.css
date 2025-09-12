@@ -1,0 +1,38 @@
+ .form-container input[type="number"] {
+  width: 680px;         
+  padding: 8px 10px;     
+  margin-bottom: 12px;   
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  font-size: 15px;
+  display: inline-block; 
+}
+.btn-edit {
+    background-color: #28a745; 
+    color: white;
+    padding: 6px 12px;
+    border-radius: 4px;
+    text-decoration: none;
+    margin: 2px;
+    font-size: 14px;
+    display: inline-block;
+}
+
+.btn-delete {
+    background-color: #dc3545; 
+    color: white;
+    padding: 6px 12px;
+    border-radius: 4px;
+    text-decoration: none;
+    margin: 2px;
+    font-size: 14px;
+    display: inline-block;
+}
+
+.btn-edit:hover {
+    background-color: #218838; 
+}
+
+.btn-delete:hover {
+    background-color: #c82333; 
+}

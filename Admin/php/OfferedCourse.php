@@ -8,9 +8,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $class_time = $_POST['class_time'];
     $class_date = $_POST['class_date'];
     $duration = $_POST['duration'];
+    $Amount = $_POST['course_fee'];
    
-   $sql = "INSERT INTO offered_course (department, course_title, student_capacity,student_count, class_time, class_date, duration)
-        VALUES ('$department', '$course_title', '$student_capacity',0, '$class_time', '$class_date', '$duration')";
+   $sql = "INSERT INTO offered_course (department, course_title, student_capacity,student_count, class_time, class_date, duration,course_fee)
+        VALUES ('$department', '$course_title', '$student_capacity',0, '$class_time', '$class_date', '$duration',$Amount)";
 
 
     if ($conn->query($sql) === TRUE) {
