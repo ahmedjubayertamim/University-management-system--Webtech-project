@@ -1,0 +1,134 @@
+#aiub{
+    position: relative;
+    color:rgb(80, 80, 220);
+    font-weight: bold;
+    left:110px;
+    bottom:128px;
+    font-size: 40px;
+}
+#portal{
+    position: relative;
+    color:gray;
+    left:110px;
+    bottom: 173px;
+    font-size: 30px;
+}
+
+
+form{
+    background-color: white;
+    width:1000px;
+    height: 655px;
+    margin: 10px 10px 10px 260px;
+}
+
+body{
+    background-color: lightgray;
+}
+
+img{
+    position:relative;
+    max-width: 97px;
+    height:auto;
+    top:8px;
+    left:8px;
+}
+#heading{
+    height:110px;
+    border: 2px solid rgb(43, 43, 232);
+    background:inear-gradient(135deg, #f9fcfd, #c3a9dc);
+}
+
+#button1{
+
+    top: 5px;
+    padding: 20px 45px;
+    left:5px;
+}
+
+
+#button2{
+    top: 62px;
+    right: 206px;
+    bottom:80px;
+    padding:20px 48px;
+}
+
+#button3{
+    top: 120px;
+    right: 416px;
+    bottom:100px;
+    padding:20px 53px;
+}
+
+#button4{
+    top: 178px;
+    right: 626px;
+    bottom: 1px;80px;
+    padding:20px 48px;
+}
+
+#button5{
+    top: 238px;
+    left: 5px;
+    bottom:260px;
+    padding:20px 48px;
+}
+
+
+#button6{
+   top:180px;
+   bottom:260px;
+   padding:20px 71px;
+   right:211px;
+}
+
+#button7{
+    top:297px;
+   bottom:260px;
+   padding:20px 85px;
+   right:426px;
+}
+
+#button8{
+   top:355px;
+   bottom:260px;
+   padding:20px 81px;
+   right:641px;
+   text-decoration: none; 
+   display: inline-block;
+}
+
+#button9{
+   top:358px;
+   bottom:260px;
+   padding:20px 91px;
+   left:5px;
+}
+#button1,#button2, #button3, #button4, #button5, #button6, #button7, #button8,#button9{
+   
+     background: linear-gradient(135deg, #4f67d0, #60348b);
+   color:white;
+   border:0px; 
+   position: relative;
+   border-radius: 10px;
+   cursor: pointer;
+   
+   
+}
+#welcome{
+   color:blue;
+   position:relative;
+   color:blue;
+   left:600px;
+   bottom:250px;
+   font-size: 30px;
+}
+
+#empty-container {
+  width: 300px;
+  height: 200px;
+  background-color: lightblue;
+  border: 2px solid blue;
+  margin-top: 20px; /* Add some space from the buttons */
+}

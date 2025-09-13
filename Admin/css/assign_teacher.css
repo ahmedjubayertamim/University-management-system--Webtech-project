@@ -1,0 +1,69 @@
+/* --- Assign Teacher table layout tweaks --- */
+.table-wrap {
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,.06);
+  padding: 0;                /* no extra padding around table */
+  overflow-x: auto;          /* graceful horizontal scroll on small screens */
+}
+
+/* tighter table */
+.table-compact {
+  table-layout: fixed;       /* column widths obey the widths below */
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;           /* a bit smaller */
+}
+
+.table-compact th,
+.table-compact td {
+  padding: 8px 10px;         /* tighter cells */
+  border: 1px solid #e6e6e6;
+  vertical-align: middle;
+}
+
+.table-compact th {
+  background: #3b5998;
+  color: #fff;
+  white-space: nowrap;       /* keep headings to one line */
+}
+
+/* set sensible widths per column */
+.col-id       { width: 56px; }
+.col-dept     { width: 110px; }
+.col-title    { width: 220px; }  /* long titles get ellipsis */
+.col-cap      { width: 90px; }
+.col-enr      { width: 90px; }
+.col-fee      { width: 110px; }
+.col-time     { width: 110px; }
+.col-date     { width: 120px; }
+.col-dur      { width: 100px; }
+.col-teacher  { width: 200px; }
+.col-assign   { width: 230px; }
+
+/* truncation for long text cells */
+.truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* make the select + button fit nicely */
+.assign-inline {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  justify-content: center;
+}
+.assign-inline select {
+  max-width: 160px;          /* keep select from growing too wide */
+}
+
+/* on small screens, allow horizontal scroll but keep cells readable */
+@media (max-width: 1200px) {
+  .table-compact { font-size: 13px; }
+  .assign-inline select { max-width: 140px; }
+}
+@media (max-width: 900px) {
+  .assign-inline select { max-width: 120px; }
+}
