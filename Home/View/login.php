@@ -1,11 +1,9 @@
-<?php
-include "../PHP/loginProcess.php"; 
-?>
+
 <!DOCTYPE HTML>
 <html>
 <head>
     <title>Login</title>
-    <link rel="stylesheet" href="../css/Registration.css">
+    <link rel="stylesheet" href="../css/login.css">
 </head>
 <body>
     <div class="form-container">
@@ -14,7 +12,7 @@ include "../PHP/loginProcess.php";
             <h2>Login</h2>
         </div>
 
-        <form action="" method="POST">
+        <form action="../PHP/loginProcess.php" method="POST">
             <label>Email:</label>
             <input type="text" name="email" value="<?= htmlspecialchars($_POST['email'] ?? '') ?>">
             <span class="error"><?= $errors['email'] ?? '' ?></span>

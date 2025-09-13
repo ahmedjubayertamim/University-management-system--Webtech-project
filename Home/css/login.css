@@ -1,0 +1,91 @@
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #f4f6f9;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.form-container {
+  background-color: #fff;
+  padding: 30px 40px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+  width: 360px;
+  text-align: center;
+}
+
+
+.form-header img {
+  width: 90px;
+  margin-bottom: 10px;
+}
+.form-header h2 {
+  margin: 5px 0 20px;
+  font-size: 24px;
+  color: #3b5998;
+}
+
+
+form label {
+  display: block;
+  text-align: left;
+  margin: 10px 0 5px;
+  font-weight: bold;
+  color: #333;
+}
+form input[type="text"],
+form input[type="password"] {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #bbb;
+  border-radius: 4px;
+  font-size: 15px;
+  outline: none;
+  transition: border-color 0.3s;
+}
+form input:focus {
+  border-color: #3b5998;
+}
+
+
+.btn {
+  width: 100%;
+  padding: 12px;
+  background-color: #3b5998;
+  color: #fff;
+  font-size: 16px;
+  border: none;
+  border-radius: 6px;
+  margin-top: 15px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+.btn:hover {
+  background-color: #2d4373;
+}
+
+
+.error {
+  color: red;
+  font-size: 13px;
+  display: block;
+  margin-top: 5px;
+  text-align: left;
+}
+
+
+.link-btn {
+  display: block;
+  margin-top: 15px;
+  color: #3b5998;
+  font-size: 14px;
+  text-decoration: none;
+}
+.link-btn:hover {
+  text-decoration: underline;
+}

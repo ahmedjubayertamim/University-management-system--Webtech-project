@@ -1,18 +1,21 @@
+
 body {
-  background: linear-gradient(135deg, #667eea, #764ba2);
+  background: #eaeaea;   
   font-family: Arial, sans-serif;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 90vh;
+  min-height: 100vh;
+  margin: 0;
 }
 
+
 .form-container {
-  background: white;
-  padding: 30px;
-  border-radius: 12px;
-  width: 400px;
-  box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+  background: #fff;
+  padding: 400px;
+  border: 2px solid #333;     
+  width: 800px;                
+  box-shadow: none;            
 }
 
 .form-header {
@@ -21,73 +24,74 @@ body {
 }
 
 .form-header img {
-  width: 80px;
+  width: 70px; 
   margin-bottom: 10px;
 }
 
 h2 {
   margin: 5px 0;
-  color: #333;
+  color: #000;
 }
 
-p {
-  font-size: 14px;
-  color: #666;
+h3 {
+  margin: 3px 0;
+  font-size: 16px;
+  color: #000;
 }
+
+#leader {
+  font-size: 13px;
+  color: #444;
+  margin-bottom: 15px;
+}
+
 
 label {
   font-weight: bold;
   display: block;
-  margin-top: 10px;
+  margin-top: 12px;
 }
 
 input, select {
   width: 100%;
-  padding: 8px;
+  padding: 10px;
   margin-top: 5px;
-  border-radius: 5px;
-  border: 1px solid #ccc;
+  border-radius: 3px;
+  border: 1px solid #999;
+  font-size: 14px;
+  box-sizing: border-box;
 }
+
 
 .btn {
   width: 100%;
-  margin-top: 15px;
-  padding: 10px;
-  background: linear-gradient(135deg, #4f67d0, #60348b);
+  margin-top: 20px;
+  padding: 12px;
+  background: #3f2b96;   
   color: white;
   border: none;
-  border-radius: 8px;
+  border-radius: 3px;
   font-weight: bold;
   cursor: pointer;
+  font-size: 15px;
 }
 
 .btn:hover {
-  background: linear-gradient(135deg, #60348b, #4f67d0);
+  background: #2c1d70;
 }
 
-.link-btn {
-  display: block;
-  text-align: center;
-  margin-top: 12px;
-  color: #4f67d0;
-  text-decoration: none;
-  font-size: 14px;
-}
-
-
-
+/* Success + Errors */
 .success {
   color: green;
   font-size: 14px;
   text-align: center;
-  margin-top: 10px;
+  margin-top: 15px;
   font-weight: bold;
-}
-.errors{
-  color: #e60000;      /* bright red */
-  font-size: 14px;
-  font-weight: bold;
-  margin-top: 3px;
-  display: block;      /* ensures it always shows on a new line */
 }
 
+.error {
+  color: #e60000;
+  font-size: 12px;
+  margin-top: 2px;
+  display: block;
+}
