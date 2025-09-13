@@ -1,0 +1,18 @@
+.content { margin-left:240px; padding:30px; }
+    .wrap    { max-width:1000px; margin:0 auto; }
+    .application-form .form-table { width:100%; border-collapse:collapse; }
+    .application-form .form-table td { border:none; padding:12px 16px; vertical-align:top; }
+    .application-form .form-table td:first-child {
+      width:240px; text-align:right; padding-right:18px; font-weight:600; color:#333;
+    }
+    .application-form input[type="text"],
+    .application-form input[type="date"],
+    .application-form select,
+    .application-form textarea {
+      width:100%; padding:10px 12px; border-radius:6px;
+      border:1px solid #cfd6e4; font-size:15px; line-height:1.45;
+    }
+    #details { min-height:300px; resize:vertical; }
+    .btn { padding:12px 18px; border-radius:8px; background:#2d60ff; color:#fff; border:0; cursor:pointer; }
+    .success,.error{ margin-bottom:14px; }
+    option.dim{ color:#888; }

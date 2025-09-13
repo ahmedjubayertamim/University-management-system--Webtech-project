@@ -1,91 +1,73 @@
 <?php
-session_start();
-require_once __DIR__ . '/../php/config.php';
-require_once __DIR__ . '/../php/helpers_pay.php';
 
-/* Resolve or create students.student_id for this user (enabled student only) */
-function get_or_create_student_id(mysqli $conn, int $user_id): int {
-    $role = $status = null;
-    $q = $conn->prepare("SELECT role, status FROM users WHERE id=?");
-    $q->bind_param("i", $user_id);
-    $q->execute();
-    $q->bind_result($role, $status);
-    $q->fetch(); $q->close();
-    if ($role !== 'student' || $status !== 'enabled') return 0;
 
-    $sid = 0;
-    $q = $conn->prepare("SELECT student_id FROM students WHERE user_id=?");
-    $q->bind_param("i", $user_id);
-    $q->execute(); $q->bind_result($sid);
-    if ($q->fetch()) { $q->close(); return (int)$sid; }
-    $q->close();
-
-    $ins = $conn->prepare("INSERT INTO students (user_id) VALUES (?)");
-    $ins->bind_param("i", $user_id);
-    if (!$ins->execute()) { $ins->close(); return 0; }
-    $sid = (int)$conn->insert_id; $ins->close();
-    return $sid;
+if (!isset($__student_id, $__course_total, $__library_fine, $__paid_total, $__total_due, $__payments)) {
+  header("Location: /Project/Student/php/PayFees.php");
+  exit;
 }
-
-$user_id = (int)($_SESSION['user_id'] ?? 0);
-if ($user_id <= 0) die("Please log in.");
-$student_id = get_or_create_student_id($conn, $user_id);
-if ($student_id <= 0) die("Not allowed.");
-
-$msg = $_GET['msg'] ?? "";
-
-/* Totals */
-$course_total = compute_course_total($conn, $student_id);
-$library_fine = compute_library_fine($conn, $student_id);
-$paid_total   = compute_completed_paid($conn, $student_id);
-$total_due    = max(0, $course_total + $library_fine - $paid_total);
-
-/* My payment history */
-$hist = $conn->prepare("SELECT * FROM payments WHERE student_id=? ORDER BY payment_id DESC");
-$hist->bind_param("i", $student_id);
-$hist->execute();
-$payments = $hist->get_result();
+if (!function_exists('h')) { function h($s){ return htmlspecialchars((string)$s, ENT_QUOTES, 'UTF-8'); } }
 ?>
 <!DOCTYPE html>
 <html>
 <head>
+ 
   <title>Pay Tuition Fees</title>
+  
   <link rel="stylesheet" href="../css/PayFees.css">
-
 </head>
 <body>
 <header>
   <h1>Pay Tuition Fees</h1>
-  <div class="search-box"><input placeholder="Search..."><button>Search</button></div>
+ 
 </header>
 
 <div class="sidebar">
   <ul>
-    <li><a href="StudentDashboard.php">Dashboard</a></li>
-    <li><a href="CourseRegistration.php">Register Courses</a></li>
-    <li><a href="PayFees.php">Pay Fees</a></li>
-    <li><a href="StudentLibrary.php">Library</a></li>
-    <li><a href="../php/logout.php">Logout</a></li>
+    <li><a href="/Project/Student/view/StudentDashboard.php">Dashboard</a></li>
+    <li><a href="/Project/Student/php/CourseRegistration.php">Register Courses</a></li>
+    <li><a href="/Project/Student/view/PayFees.php">Pay Fees</a></li>
+    <li><a href="/Project/Student/view/StudentAddDrop.php">Add/Drop</a></li>
+    <li><a href="/Project/Student/php/StudentLibrary.php">Library</a></li>
+    <li><a href="/Project/Student/view/StudentApplication.php">Student Application</a></li>
+    <li><a href="/Project/Student/view/MyApplications.php">My Applications</a></li>
+    <li><a href="/Project/Student/php/MyResults.php">My Results</a></li>
+    <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+     
+
+
+
+    <li><a href="/Project/Student/php/logout.php"style="background:#ff3b30">Logout</a></li>
   </ul>
 </div>
 
 <div class="content">
-  <?php if ($msg): ?>
-    <div class="<?= stripos($msg,'fail')!==false ? 'error':'note' ?>"><?= htmlspecialchars($msg) ?></div>
+  <?php if (!empty($__msg)): ?>
+    <div class="<?= stripos($__msg,'fail')!==false ? 'error':'note' ?>"><?= h($__msg) ?></div>
   <?php endif; ?>
 
   <div class="box">
     <div class="grid">
-      <div class="stat"><h3>Course Fees</h3><div><?= number_format($course_total,2) ?></div></div>
-      <div class="stat"><h3>Library Fine</h3><div><?= number_format($library_fine,2) ?></div></div>
-      <div class="stat"><h3>Completed Paid</h3><div><?= number_format($paid_total,2) ?></div></div>
+      <div class="stat"><h3>Course Fees</h3><div><?= number_format($__course_total, 2) ?></div></div>
+      <div class="stat"><h3>Library Fine</h3><div><?= number_format($__library_fine, 2) ?></div></div>
+      <div class="stat"><h3>Completed Paid</h3><div><?= number_format($__paid_total, 2) ?></div></div>
     </div>
-    <h2 style="margin-top:16px;">Total Due: <?= number_format($total_due,2) ?></h2>
+    <h2 style="margin-top:16px;">Total Due: <?= number_format($__total_due, 2) ?></h2>
     <p class="muted">Create a payment slip. Admin will approve or reject it.</p>
 
     <form action="../php/create_payment.php" method="post" class="box" style="margin-top:12px;">
+      <input type="hidden" name="student_id" value="<?= (int)$__student_id ?>">
       <label>Amount to pay (you can pay partially):</label><br>
-      <input type="number" step="0.01" min="0" name="amount" value="<?= htmlspecialchars($total_due) ?>" style="padding:8px;width:220px"><br><br>
+      <input type="number" step="0.01" min="0" name="amount" value="<?= h($__total_due) ?>" style="padding:8px;width:220px"><br><br>
 
       <label>Payment Method:</label>
       <select name="method" style="padding:8px">
@@ -106,15 +88,19 @@ $payments = $hist->get_result();
       <tr>
         <th>ID</th><th>Amount</th><th>Method</th><th>Status</th><th>Created</th>
       </tr>
-      <?php while($p=$payments->fetch_assoc()): ?>
-      <tr>
-        <td><?= (int)$p['payment_id'] ?></td>
-        <td><?= number_format($p['amount'],2) ?></td>
-        <td><?= htmlspecialchars($p['method']) ?></td>
-        <td><?= htmlspecialchars($p['status']) ?></td>
-        <td><?= htmlspecialchars($p['payment_date']) ?></td>
-      </tr>
-      <?php endwhile; ?>
+      <?php if (empty($__payments)): ?>
+        <tr><td colspan="5" style="text-align:center" class="muted">No payments yet.</td></tr>
+      <?php else: ?>
+        <?php foreach ($__payments as $p): ?>
+          <tr>
+            <td><?= (int)$p['payment_id'] ?></td>
+            <td><?= number_format((float)$p['amount'], 2) ?></td>
+            <td><?= h($p['method']) ?></td>
+            <td><?= h($p['status']) ?></td>
+            <td><?= h($p['payment_date']) ?></td>
+          </tr>
+        <?php endforeach; ?>
+      <?php endif; ?>
     </table>
   </div>
 </div>

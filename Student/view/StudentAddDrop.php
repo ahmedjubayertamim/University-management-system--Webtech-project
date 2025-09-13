@@ -3,79 +3,42 @@
 <head>
   
   <title>Student Add/Drop Courses</title>
-  <link rel="stylesheet" href="../../css/style.css">
+  <link rel="stylesheet" href="../css/Dashboard.css">
   <style>
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      margin-top: 15px;
-    }
-    table th, table td {
-      border: 1px solid #ddd;
-      padding: 10px;
-      text-align: center;
-    }
-    table th {
-      background: #3b5998;
-      color: white;
-    }
-    table tr:nth-child(even) {
-      background: #f9f9f9;
-    }
-    .btn-action {
-      padding: 5px 10px;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      font-size: 14px;
-    }
-    .btn-add {
-      background: green;
-      color: white;
-    }
-    .btn-drop {
-      background: red;
-      color: white;
-    }
-    .deadline-msg {
-      background: #f1f1f1;
-      padding: 10px;
-      margin-bottom: 15px;
-      border-left: 5px solid #3b5998;
-      font-size: 15px;
-    }
+   
   </style>
 </head>
 <body>
   <!-- Header -->
   <header>
     <h1>Student Add/Drop Courses</h1>
-    <div class="search-box">
-      <input type="text" placeholder="Search...">
-      <button>Search</button>
-    </div>
+    
   </header>
 
-  <!-- Sidebar -->
   <div class="sidebar">
     <ul>
-    <li><a href="StudentDashboard.php">Dashboard</a></li>
-    <li><a href="CourseRegistration.php">Register Courses</a></li>
-    <li><a href="PayFees.php">Pay Fees</a></li>
-    <li><a href="StudentAddDrop.php">Add/Drop</a></li>
-    <li><a href="StudentLibrary.php">Library</a></li>
-    
-
+      <li><a href="StudentDashboard.php">Dashboard</a></li>
+      <li><a href="CourseRegistration.php">Register Courses</a></li>
+      <li><a href="StudentAddDrop.php">Add/Drop</a></li>
+      <li><a href="StudentLibrary.php">Library</a></li>
+      <li><a href="StudentApplication.php">Student Application</a></li>
+      <li><a href="MyApplications.php">My Applications</a></li>
+      <li><a href="/Project/Student/php/MyResults.php">My Results</a></li>
+      <li><a href="PayFees.php">Pay Fees</a></li>
+       <li><a href="StudentTPE.php">Submit TPE</a></li>
       <li><a href="#">Consulting Hours</a></li>
-      <li><a href="StudentApplecation.php">Student Applecation</a></li>
-      <li><a href="#">Download Transcript</a></li>
-      <li><a href="StudentTPE.php">Submit TPE</a></li>
-      <li><a href="#">Profile Settings</a></li>
-      <li><a href="logout.php">Logout</a></li>
       
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <li><a href="../php/logout.php"style="background:#ff3b30">Logout</a></li>
     </ul>
   </div>
-
   <!-- Content -->
   <div class="content">
     <div class="form-container">
