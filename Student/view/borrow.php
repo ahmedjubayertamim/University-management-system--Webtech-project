@@ -1,5 +1,5 @@
 <?php
-// borrow.php
+
 session_start();
 require_once __DIR__ . '/config.php';
 
@@ -16,7 +16,7 @@ $studentId = (int) $_SESSION['student_id'];
 $bookid = (int) ($_POST['bookid'] ?? 0);
 if ($bookid <= 0) { die('Invalid book.'); }
 
-// Check book status
+
 $checkStmt = $conn->prepare("SELECT status FROM addbook WHERE id = ? LIMIT 1");
 $checkStmt->bind_param("i", $bookid);
 $checkStmt->execute();
@@ -28,7 +28,6 @@ if (strtolower($status) !== 'available') {
     die('Book is not available.');
 }
 
-// Create borrow record (borrow_date=CURDATE, due=+14 days)
 $insertStmt = $conn->prepare("
     INSERT INTO borrow_records (bookid, student_id, borrow_date, due_date)
     VALUES (?, ?, CURDATE(), DATE_ADD(CURDATE(), INTERVAL 14 DAY))
@@ -39,7 +38,6 @@ if (!$insertStmt->execute()) {
 }
 $insertStmt->close();
 
-// Update book status -> borrowed
 $updStmt = $conn->prepare("UPDATE addbook SET status = 'Borrowed' WHERE id = ?");
 $updStmt->bind_param("i", $bookid);
 $updStmt->execute();
