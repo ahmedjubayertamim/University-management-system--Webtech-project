@@ -4,71 +4,8 @@
   
   <title>Approve Student Requests</title>
   <link rel="stylesheet" href="../../css/style.css">
-  <style>
-    .content {
-      margin-left: 240px;
-      padding: 20px;
-    }
-    .form-container {
-      background: #fff;
-      padding: 20px;
-      border-radius: 10px;
-      box-shadow: 0px 4px 6px rgba(0,0,0,0.1);
-      margin-bottom: 30px;
-    }
-    .form-container h2 {
-      margin-bottom: 15px;
-      color: #2c3e50;
-    }
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      background: #fff;
-      border-radius: 10px;
-      overflow: hidden;
-      box-shadow: 0px 4px 6px rgba(0,0,0,0.1);
-    }
-    table th, table td {
-      padding: 12px;
-      text-align: center;
-      border-bottom: 1px solid #ddd;
-    }
-    table th {
-      background: #3b5998;
-      color: #fff;
-    }
-    table tr:hover {
-      background: #f1f1f1;
-    }
-    .action-btn {
-      padding: 6px 12px;
-      border: none;
-      border-radius: 4px;
-      cursor: pointer;
-      font-size: 14px;
-      margin: 2px;
-    }
-    .approve-btn {
-      background: #27ae60;
-      color: white;
-    }
-    .reject-btn {
-      background: #e74c3c;
-      color: white;
-    }
-    .pending {
-      color: orange;
-      font-weight: bold;
-    }
-    .approved {
-      color: green;
-      font-weight: bold;
-    }
-    .rejected {
-      color: red;
-      font-weight: bold;
-    }
-  </style>
+  <link rel="stylesheet" href="../ApproveStudentRequestStyle.css">
+
 </head>
 <body>
 
@@ -80,12 +17,12 @@
   <ul>
     <li><a href="TeacherDashboard.php">Dashboard</a></li>
     <li><a href="CourseMaterials.php">Manage Course Materials</a></li>
-    <li><a href="StudentAttendance.php">Manage Attendance</a></li>
-    <li><a href="SubmitResult.php">Submit Grades</a></li>
+    <li><a href="TeacherAttendance.php">Manage Attendance</a></li>
+    <li><a href="SubmitGrades.php">Submit Grades</a></li>
+    <li><a href="../view/SetConsulting.php">Consulting Hours</a></li>
+    <li><a href="StudentApplications.php">Approve Student Requests</a></li>
     <li><a href="ViewSalary.php">View Salary</a></li>
-    <li><a href="SetConsulting.php">Consulting Hours</a></li>
-    <li><a href="ApproveStudentRequest.php">Approve Student Requests</a></li>
-    <li><a href="logout.php">Logout</a></li>
+    <li><a href="../php/logout.php" style="background:#ff3b30">Logout</a></li>
   </ul>
 </div>
 
@@ -105,7 +42,7 @@
         </tr>
       </thead>
       <tbody>
-        <!-- Example -->
+        
         <tr>
           <td>ST12345</td>
           <td>Ahmed Jubayer</td>
@@ -122,7 +59,6 @@
           </td>
         </tr>
 
-        <!-- Example Approved -->
         <tr>
           <td>ST56789</td>
           <td>Sarah Khan</td>
@@ -136,7 +72,6 @@
           </td>
         </tr>
 
-        <!-- Example Rejected -->
         <tr>
           <td>ST98765</td>
           <td>Ali Hassan</td>
