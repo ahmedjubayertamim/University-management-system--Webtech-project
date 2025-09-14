@@ -26,31 +26,20 @@ if (!function_exists('h')) {
   </header>
 
  
-  <div class="sidebar">
+ <div class="sidebar">
     <ul>
-      <li><a href="/Project/Student/view/StudentDashboard.php">Dashboard</a></li>
-      <li><a href="/Project/Student/php/CourseRegistration.php">Register Courses</a></li>
-      <li><a href="/Project/Student/view/StudentAddDrop.php">Add/Drop</a></li>
-      <li><a href="/Project/Student/view/StudentLibrary.php">Library</a></li>
-      <li><a href="/Project/Student/view/StudentApplication.php">Student Application</a></li>
-      <li><a href="/Project/Student/view/MyApplications.php">My Applications</a></li>
+      <li><a href="../view/StudentDashboard.php">Dashboard</a></li>
+      <li><a href="CourseRegistration.php">Register Courses</a></li>
+       <li><a href="/Project/Student/php/CourseMaterials.php" class="active">Materials</a></li>
+      <li><a href="../view/StudentAddDrop.php">Add/Drop</a></li>
+      <li><a href="StudentLibrary.php">Library</a></li>
+      <li><a href="StudentApplication.php">Student Application</a></li>
+      <li><a href="../view/MyApplications.php">My Applications</a></li>
       <li><a href="/Project/Student/php/MyResults.php">My Results</a></li>
-      <li><a href="/Project/Student/view/PayFees.php">Pay Fees</a></li>
-      <li><a href="/Project/Student/view/StudentTPE.php">Submit TPE</a></li>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-
-
-
-
-      <li><a href="/Project/Student/php/logout.php" style="background:#ff3b30">Logout</a></li>
+      <li><a href="PayFees.php">Pay Fees</a></li>
+       <li><a href="StudentTPE.php">Submit TPE</a></li>
+      <li><a href="/Project/Student/php/ConsultingHours.php" class="active">Consulting Hours</a></li>
+      <li><a href="../php/logout.php"style="background:#ff3b30">Logout</a></li>
     </ul>
   </div>
 

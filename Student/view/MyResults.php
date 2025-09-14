@@ -1,6 +1,5 @@
 <?php
 
-
 if (!isset($__MYRESULTS_ROWS, $__MYRESULTS_HAS)) {
   header("Location: /Project/Student/php/MyResults.php");
   exit;
@@ -13,6 +12,7 @@ if (!function_exists('h')) {
 $rows  = $__MYRESULTS_ROWS;
 $G_HAS = $__MYRESULTS_HAS;
 ?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -25,33 +25,22 @@ $G_HAS = $__MYRESULTS_HAS;
 <header><h1>My Course Results</h1></header>
 
 <div class="sidebar">
-  <ul>
-    <li><a href="/Project/Student/view/StudentDashboard.php">Dashboard</a></li>
-    <li><a href="/Project/Student/php/CourseRegistration.php">Register Courses</a></li>
-    <li><a href="/Project/Student/view/PayFees.php">Pay Fees</a></li>
-    <li><a href="/Project/Student/view/StudentAddDrop.php">Add/Drop</a></li>
-    <li><a href="/Project/Student/php/StudentLibrary.php">Library</a></li>
-    <li><a href="/Project/Student/view/StudentApplication.php">Student Application</a></li>
-    <li><a href="/Project/Student/view/MyApplications.php">My Applications</a></li>
-    <li><a href="/Project/Student/php/MyResults.php">My Results</a></li>
-     <li><a href="/Project/Student/php/StudentTPE.php">Submit TPE</a></li>
-    <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      
+    <ul>
+      <li><a href="StudentDashboard.php">Dashboard</a></li>
+      <li><a href="CourseRegistration.php">Register Courses</a></li>
+       <li><a href="/Project/Student/php/CourseMaterials.php">Materials</a></li>
+      <li><a href="../view/StudentAddDrop.php">Add/Drop</a></li>
+      <li><a href="StudentLibrary.php">Library</a></li>
+      <li><a href="StudentApplication.php">Student Application</a></li>
+      <li><a href="../view/MyApplications.php">My Applications</a></li>
+      <li><a href="/Project/Student/php/MyResults.php">My Results</a></li>
+      <li><a href="PayFees.php">Pay Fees</a></li>
+       <li><a href="StudentTPE.php">Submit TPE</a></li>
+      <li><a href="/Project/Student/php/ConsultingHours.php">Consulting Hours</a></li>
+      <li><a href="../php/logout.php"style="background:#ff3b30">Logout</a></li>
+    </ul>
+  </div>
 
-
-
-    <li><a href="/Project/Student/php/logout.php"style="background:#ff3b30">Logout</a></li>
-  </ul>
-</div>
 <div class="content">
   <div class="wrap">
     <h2>Your Registered Courses & Grades</h2>

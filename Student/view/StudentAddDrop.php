@@ -19,6 +19,7 @@
     <ul>
       <li><a href="StudentDashboard.php">Dashboard</a></li>
       <li><a href="CourseRegistration.php">Register Courses</a></li>
+       <li><a href="/Project/Student/php/CourseMaterials.php" class="active">Materials</a></li>
       <li><a href="StudentAddDrop.php">Add/Drop</a></li>
       <li><a href="StudentLibrary.php">Library</a></li>
       <li><a href="StudentApplication.php">Student Application</a></li>
@@ -26,16 +27,7 @@
       <li><a href="/Project/Student/php/MyResults.php">My Results</a></li>
       <li><a href="PayFees.php">Pay Fees</a></li>
        <li><a href="StudentTPE.php">Submit TPE</a></li>
-      <li><a href="#">Consulting Hours</a></li>
-      
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
+      <li><a href="/Project/Student/php/ConsultingHours.php" class="active">Consulting Hours</a></li>
       <li><a href="../php/logout.php"style="background:#ff3b30">Logout</a></li>
     </ul>
   </div>
@@ -44,7 +36,6 @@
     <div class="form-container">
       <h2>Add/Drop Courses</h2>
 
-      <!-- Message showing Add/Drop Deadline -->
       <div class="deadline-msg" id="deadline-status">
         Checking Add/Drop availability...
       </div>
@@ -106,7 +97,7 @@
   </div>
 
   <script>
-    // Simulate Admin-set deadline (for demo)
+  
     const deadlineStart = new Date("2025-09-01T09:00:00");
     const deadlineEnd   = new Date("2025-09-10T23:59:00");
     const now = new Date();
@@ -119,7 +110,7 @@
     } else {
       statusDiv.innerHTML = 
         "<strong>Status:</strong> Add/Drop is <span style='color:red;font-weight:bold;'>CLOSED</span>";
-      // Disable all buttons if closed
+      
       document.querySelectorAll(".btn-action").forEach(btn => btn.disabled = true);
     }
   </script>
