@@ -3,8 +3,44 @@
 <head>
   
   <title>Salary History</title>
-  <link rel="stylesheet" href="../../css/style.css">
-
+ <link rel="stylesheet" href="../css/teacher.css">
+  <style>
+    .container {
+      max-width: 1000px;
+      margin: 30px auto;
+      background: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+    h2 {
+      text-align: center;
+      color: #3b5998;
+      margin-bottom: 20px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 15px;
+    }
+    table th, table td {
+      padding: 12px;
+      border: 1px solid #ddd;
+      text-align: center;
+    }
+    table th {
+      background: #3b5998;
+      color: #fff;
+    }
+    .paid {
+      color: green;
+      font-weight: bold;
+    }
+    .pending {
+      color: red;
+      font-weight: bold;
+    }
+  </style>
 </head>
 <body>
   <header>
@@ -39,7 +75,7 @@
         </tr>
       </thead>
       <tbody>
-       
+        <!-- Example Data  -->
         <tr>
           <td>July 2025</td>
           <td>$1,000</td>

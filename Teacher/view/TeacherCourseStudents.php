@@ -58,8 +58,13 @@ $rs = $st->get_result();
 <div class="sidebar">
   <ul>
     <li><a href="TeacherDashboard.php">Dashboard</a></li>
-    <li><a href="TeacherCourses.php">My Courses</a></li>
-    <li><a href="../php/logout.php">Logout</a></li>
+    <li><a href="CourseMaterials.php">Manage Course Materials</a></li>
+    <li><a href="TeacherAttendance.php">Manage Attendance</a></li>
+    <li><a href="SubmitGrades.php">Submit Grades</a></li>
+    <li><a href="../view/SetConsulting.php">Consulting Hours</a></li>
+    <li><a href="StudentApplications.php">Approve Student Requests</a></li>
+    <li><a href="ViewSalary.php">View Salary</a></li>
+    <li><a href="../php/logout.php" style="background:#ff3b30">Logout</a></li>
   </ul>
 </div>
 

@@ -1,4 +1,5 @@
 <?php
+// Project/Teacher/php/SubmitGrades.php
 session_start();
 require_once __DIR__ . '/config.php';
 
@@ -11,6 +12,7 @@ if ($user_id <= 0 || $role !== 'teacher') {
     exit("Please log in as a teacher.");
 }
 
+/* Load offered courses assigned to this teacher (offered_course.teacher_id -> users.id) */
 $courses = [];
 $q = $conn->prepare("SELECT id, course_title, department
                      FROM offered_course
@@ -26,6 +28,7 @@ $offered_id = isset($_GET['offered_id']) ? (int)$_GET['offered_id'] : 0;
 $semester   = isset($_GET['semester'])   ? (int)$_GET['semester']   : 1;
 $year       = isset($_GET['year'])       ? (int)$_GET['year']       : (int)date('Y');
 
+/* Verify the offered course belongs to this teacher */
 $course_ok = false; $course_title = '';
 if ($offered_id > 0) {
     $chk = $conn->prepare("SELECT course_title FROM offered_course
@@ -37,6 +40,7 @@ if ($offered_id > 0) {
     $chk->close();
 }
 
+/* Load registered students for this offered course */
 $students = [];
 if ($course_ok) {
     $sql = "

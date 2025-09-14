@@ -1,5 +1,5 @@
 <?php
-
+// Project/Teacher/php/update_application.php
 session_start();
 require_once __DIR__ . '/config.php';
 

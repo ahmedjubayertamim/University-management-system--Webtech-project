@@ -56,6 +56,7 @@ function ensureCourseId(mysqli $conn, string $title, ?string $dept): int {
 
 $course_id = ensureCourseId($conn, (string)$offered_title, $offered_dept ?: null);
 
+/* Weighted total -> letter grade */
 function letter_grade($t) {
   if ($t >= 90) return 'A+';
   if ($t >= 85) return 'A';
@@ -71,6 +72,7 @@ function letter_grade($t) {
 }
 $WE=0.60; $WQ=0.15; $WA=0.10; $WP=0.15;
 
+/* Manual upsert into grades (FK: grades.course_id → courses.course_id) :contentReference[oaicite:3]{index=3} */
 $sel = $conn->prepare("SELECT grade_id FROM grades WHERE student_id=? AND course_id=? AND semester=? AND year=? LIMIT 1");
 $upd = $conn->prepare("UPDATE grades SET grade=? WHERE grade_id=?");
 $ins = $conn->prepare("INSERT INTO grades (student_id, course_id, semester, year, grade) VALUES (?,?,?,?,?)");
@@ -102,5 +104,6 @@ for ($i=0; $i<$rows; $i++){
 }
 $sel->close(); $upd->close(); $ins->close();
 
+/* After saving, show the course student result table */
 header("Location: GradesResult.php?offered_id={$offered_id}&semester={$semester}&year={$year}");
 exit;

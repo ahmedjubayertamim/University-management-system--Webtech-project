@@ -1,6 +1,13 @@
 <?php
-if (!isset($__courses, $__materials)) { header("Location: /Project/Teacher/php/CourseMaterials.php"); exit; }
-if (!function_exists('h')) { function h($s){ return htmlspecialchars((string)$s, ENT_QUOTES, 'UTF-8'); } }
+if (!isset($__courses, $__materials)) { 
+  header("Location: /Project/Teacher/php/CourseMaterials.php"); 
+  exit; 
+}
+if (!function_exists('h')) {
+   function h($s){
+     return htmlspecialchars((string)$s, ENT_QUOTES, 'UTF-8'); 
+    } 
+  }
 ?>
 <!DOCTYPE html>
 <html>
@@ -18,10 +25,12 @@ if (!function_exists('h')) { function h($s){ return htmlspecialchars((string)$s,
 <div class="sidebar">
   <ul>
     <li><a href="TeacherDashboard.php">Dashboard</a></li>
-    <li><a href="/Project/Teacher/php/CourseMaterials.php" class="active">Course Materials</a></li>
-    <li><a href="TeacherAttendanceReport.php">Attendance Report</a></li>
+    <li><a href="CourseMaterials.php">Manage Course Materials</a></li>
+    <li><a href="../php/TeacherAttendance.php">Manage Attendance</a></li>
     <li><a href="SubmitGrades.php">Submit Grades</a></li>
-    <li><a href="StudentApplications.php">Student Applications</a></li>
+    <li><a href="../view/SetConsulting.php">Consulting Hours</a></li>
+    <li><a href="../view/StudentApplications.php">Approve Student Requests</a></li>
+    <li><a href="ViewSalary.php">View Salary</a></li>
     <li><a href="../php/logout.php" style="background:#ff3b30">Logout</a></li>
   </ul>
 </div>

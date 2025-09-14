@@ -1,67 +1,36 @@
 <?php
-
-session_start();
-require_once __DIR__ . '/../php/config.php'; 
-
-$user_id = (int)($_SESSION['user_id'] ?? 0);
-$role    = $_SESSION['role'] ?? '';
-if ($user_id <= 0) { die("Please log in."); }
-
-if ($role !== 'teacher') {
-    die("Access denied: not a teacher account.");
-}
-
-$u = $conn->prepare("SELECT first_name, last_name, email, contact_number, status 
-                     FROM users WHERE id=? LIMIT 1");
-$u->bind_param("i", $user_id);
-$u->execute();
-$u->bind_result($first, $last, $email, $contact, $status);
-if (!$u->fetch()) { $u->close(); die("User not found."); }
-$u->close();
-
-$name = trim(($first ?? '') . ' ' . ($last ?? ''));
-$name = $name ?: 'Teacher';
-$email   = $email ?? '';
+$name    = $name    ?? 'Teacher';
+$email   = $email   ?? '';
 $contact = $contact ?? '';
-$enabled = ($status === 'enabled');
+$enabled = isset($enabled) ? (bool)$enabled : false;
 ?>
 <!DOCTYPE html>
 <html>
 <head>
-  
+  <meta charset="utf-8">
   <title>Teacher Dashboard</title>
   <link rel="stylesheet" href="../css/teacher.css">
- 
 </head>
 <body>
-  <!-- Header -->
   <header>
     <h1>Teacher Dashboard</h1>
-    <div class="search-box">
-      <input type="text" placeholder="Search...">
-      <button>Search</button>
+   
     </div>
   </header>
 
-  
- <div class="sidebar">
-  <ul>
-    <li><a href="TeacherDashboard.php">Dashboard</a></li>
-    <li><a href="CourseMaterials.php">Manage Course Materials</a></li>
-    <li><a href="StudentAttendance.php">Manage Attendance</a></li>
-    <li><a href="SubmitGrades.php">Submit Grades</a></li>
-    <li><a href="ConsultingHours.php">Consulting Hours</a></li>
-    <li><a href="StudentApplications.php">Approve Student Requests</a></li>
-    <li><a href="ViewSalary.php">View Salary</a></li>
-
-
-
-
-    <li><a href="../php/logout.php" style="background:#ff3b30">Logout</a></li>
-  </ul>
-</div>
-
-
+  <div class="sidebar">
+    <ul>
+      <li><a href="../php/TeacherDashboard.php" class="active">Dashboard</a></li>
+      <li><a href="../php/CourseMaterials.php">Manage Course Materials</a></li>
+      <li><a href="../php/TeacherAttendance.php">Manage Attendance</a></li>
+      <li><a href="../php/TeacherAttendanceReport.php">Attendance Report</a></li>
+      <li><a href="../php/SubmitGrades.php">Submit Grades</a></li>
+      <li><a href="../php/SetConsulting.php">Consulting Hours</a></li>
+      <li><a href="../php/StudentApplications.php">Approve Student Requests</a></li>
+      <li><a href="../php/ViewSalary.php">View Salary</a></li>
+      <li><a href="../php/logout.php" style="background:#ff3b30">Logout</a></li>
+    </ul>
+  </div>
 
   <div class="content">
     <div class="wrap">
@@ -89,7 +58,7 @@ $enabled = ($status === 'enabled');
         </div>
       </div>
 
-      <a class="btn" href="MyCourses.php">Go to My Courses</a>
+      <a class="btn" href="../php/TeacherCourses.php">Go to My Courses</a>
     </div>
   </div>
 </body>
